@@ -1,1 +1,1 @@
-include ':DexLoaderMain', ':DexLoaderPlugin'
+include ':DexLoaderMain', ':DexLoaderPlugin', ':DexLoaderLib', ':DexLoaderPluginApk'
