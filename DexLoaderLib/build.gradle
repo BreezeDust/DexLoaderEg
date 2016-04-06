@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+//编译并打包JAR
+task makeDebugJar(type: Jar, dependsOn: assemble) {
+    from 'build/intermediates/classes/debug'
+    destinationDir = file('build/outputs')
+}
+task makeReleaseJar(type: Jar, dependsOn: assemble) {
+    from 'build/intermediates/classes/release'
+    destinationDir = file('build/outputs')
+}
+dependencies {
+}
